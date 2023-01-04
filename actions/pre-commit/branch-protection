@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 
-globalDir="$(cd "$(dirname "${0}")/../" && pwd)"
+set -euo pipefail
+
+globalDir="$(cd "$(dirname "${0}")/../../" && pwd)"
 localDir="$(git rev-parse --show-superproject-working-tree --show-toplevel | head -1)"
 
 main() {
