@@ -3,6 +3,16 @@
     "@commitlint/cli": "^17.3.0",
     "@commitlint/config-conventional": "^17.3.0",
     "@secretlint/secretlint-rule-preset-recommend": "^6.0.2",
-    "secretlint": "^6.0.2"
+    "dictionary-en": "^3.2.0",
+    "secretlint": "^6.0.2",
+    "textlint": "^12.5.0",
+    "textlint-rule-alex": "^3.0.0",
+    "textlint-rule-common-misspellings": "^1.0.1",
+    "textlint-rule-en-capitalization": "^2.0.3",
+    "textlint-rule-en-spell": "^1.2.4",
+    "textlint-rule-rousseau": "^1.4.8",
+    "textlint-rule-spelling": "^0.3.0",
+    "textlint-rule-stop-words": "^3.0.1",
+    "textlint-rule-write-good": "^2.0.0"
   }
 }

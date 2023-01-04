@@ -1,0 +1,42 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+globalDir="$(cd "$(dirname "${0}")/../../" && pwd)"
+localDir="$(git rev-parse --show-superproject-working-tree --show-toplevel | head -1)"
+
+textlintrc() {
+  for fmt in json yaml yml ; do
+    if test -e "${localDir}/.textlintrc.${fmt}"; then
+      echo "${localDir}/.textlintrc.${fmt}"
+      return 0
+    fi
+  done
+
+  if test -e "${localDir}/.textlintrc" ; then
+    echo "${localDir}/.textlintrc"
+    return 0
+  fi
+
+  echo "${globalDir}/textlintrc.json"
+  return 0
+}
+
+args() {
+  local rc="$(textlintrc)"
+  if test ! -z "${rc}"; then
+    echo "--config ${rc}"
+    return 0
+  fi
+
+  echo ""
+  return 0
+}
+
+main() {
+  local msg="$1"
+  cat $msg \
+    | "${globalDir}/node_modules/.bin/textlint" $(args) --stdin || return 1
+}
+
+main "${@}"

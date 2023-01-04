@@ -1,0 +1,47 @@
+{
+  "rules": {
+    "alex": {
+      "allow": []
+    },
+    "rousseau": {
+      "ignoreTypes": [
+        "sentence:start",
+        "sentence:end",
+        "sentence:uppercase",
+        "weasel"
+      ],
+      "showLevels": [
+        "suggestion",
+        "warning",
+        "error"
+      ]
+    },
+    "stop-words": {
+      "defaultWords": true,
+      "skip": [
+        "Blockquote"
+      ]
+    },
+    "common-misspellings": {
+      "ignore": []
+    },
+    "spelling": {
+      "language": "en",
+      "skipPatterns": [
+        "JavaScript"
+      ],
+      "wordDefinitionRegexp": "/[\\w']+/g",
+      "suggestCorrections": true
+    },
+    "en-spell": true,
+    "write-good": {
+      "passive": true,
+      "illusion": true,
+      "so": true,
+      "thereIs": true,
+      "weasel": false,
+      "tooWordy": true,
+      "cliches": true
+    }
+  }
+}
