@@ -1,0 +1,54 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+globalDir="$(cd "$(dirname "${0}")/../../" && pwd)"
+localDir="$(git rev-parse --show-superproject-working-tree --show-toplevel | head -1)"
+
+commitlintrc() {
+  for fmt in json yaml yml js cjs ts cts ; do
+    if test -e "${localDir}/.commitlintrc.${fmt}"; then
+      echo "${localDir}/.commitlintrc.${fmt}"
+      return 0
+    fi
+  done
+
+  for fmt in js cjs ts cts ; do
+    if test -e "${localDir}/commitlint.config.${fmt}"; then
+      echo "${localDir}/commitlint.config.${fmt}"
+      return 0
+    fi
+  done
+
+  if test -e "${localDir}/.commitlintrc" ; then
+    echo "${localDir}/.commitlintrc"
+    return 0
+  fi
+
+  if test -e "${localDir}/package.json" \
+    && grep '"commitlint":' "${localDir}/package.json" ; then
+    return 0
+  fi
+
+  echo "${globalDir}/commitlintrc.json"
+  return 0
+}
+
+args() {
+  local rc="$(commitlintrc)"
+  if test ! -z "${rc}"; then
+    echo "--config ${rc}"
+    return 0
+  fi
+
+  echo ""
+  return 0
+}
+
+main() {
+  local msg="$1"
+  
+  "${globalDir}/node_modules/.bin/commitlint" $(args) --edit "${msg}" || return 1
+}
+
+main "${@}"

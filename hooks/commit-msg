@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+globalDir="$(cd "$(dirname "${0}")/../" && pwd)"
+localDir="$(git rev-parse --show-superproject-working-tree --show-toplevel | head -1)"
+
+disabled() {
+  local hook="${1}"
+  test -e "${localDir}/.git/hooks/.disable-${hook}" \
+    || test -e "${localDir}/.githooks/disable-${hook}"
+}
+
+main() {
+  for hook in $(ls $globalDir/actions/commit-msg); do
+    if ! disabled "${hook}" ; then
+      bash -euo pipefail "${globalDir}/actions/commit-msg/${hook}" "${@}"
+      if test $? -ne 0 ; then
+        return 1
+      fi
+    fi
+  done
+
+  if test -e "${localDir}/.git/hooks/commit-msg"; then
+    bash "${localDir}/.git/hooks/commit-msg" "${@}";
+    if test $? -ne 0 ; then
+      return 1
+    fi
+  fi
+
+  return 0
+}
+
+main "${@}"
