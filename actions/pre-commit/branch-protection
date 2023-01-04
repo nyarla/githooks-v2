@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+globalDir="$(cd "$(dirname "${0}")/../" && pwd)"
+localDir="$(git rev-parse --show-superproject-working-tree --show-toplevel | head -1)"
+
+main() {
+  case "$(git rev-parse --abbrev-ref HEAD)" in
+    main | master | devel )
+      echo "you can't commit protected branch!";
+      return 1
+      ;;
+
+    *)
+      return 0;
+      ;;
+  esac
+}
+
+main "${@}"
