@@ -1,7 +1,9 @@
 {
   "rules": {
     "alex": {
-      "allow": []
+      "allow": [
+        "hooks"
+      ]
     },
     "rousseau": {
       "ignoreTypes": [
@@ -33,7 +35,6 @@
       "wordDefinitionRegexp": "/[\\w']+/g",
       "suggestCorrections": true
     },
-    "en-spell": true,
     "write-good": {
       "passive": true,
       "illusion": true,
