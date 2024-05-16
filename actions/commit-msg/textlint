@@ -5,8 +5,6 @@ set -euo pipefail
 ROOTDIR="$(cd "$(dirname "${0}")/../../" && pwd)"
 
 main() {
-  set -x
-
   local msg="${1}"
   local rc="${ROOTDIR}/textlintrc.yaml"
   export NODE_PATH="${ROOTDIR}/node_modules"
