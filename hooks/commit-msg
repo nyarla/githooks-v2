@@ -2,31 +2,27 @@
 
 set -euo pipefail
 
-globalDir="$(cd "$(dirname "${0}")/../" && pwd)"
-localDir="$(git rev-parse --show-superproject-working-tree --show-toplevel | head -1)"
+ROOTDIR="$(cd "$(dirname "${0}")/../" && pwd)"
+REPODIR="$(git rev-parse --show-superproject-working-tree --show-toplevel | head -1)"
 
 disabled() {
-  local hook="${1}"
-  test -e "${localDir}/.git/hooks/.disable-${hook}" \
-    || test -e "${localDir}/.githooks/disable-${hook}"
+  local action="${1}"
+  [[ -e "${REPODIR}/.git/hooks/.disable-action-${action}" ]] \
+    || [[ -e "${REPODIR}/.githooks/.disable-action-${action}" ]]
 }
 
+
 main() {
-  for hook in $(ls $globalDir/actions/commit-msg); do
-    if ! disabled "${hook}" ; then
-      bash -euo pipefail "${globalDir}/actions/commit-msg/${hook}" "${@}"
-      if test $? -ne 0 ; then
-        return 1
-      fi
+  if [[ -e "${REPODIR}/.git/hooks/commit-msg" ]]; then
+    "${REPODIR}/.git/hooks/commit-msg" "${@}"
+    return $?
+  fi
+
+  for action in "${ROOTDIR}"/actions/commit-msg/*; do
+    if ! disabled "$(basename "${action}")" && ! "${action}" "${@}"; then
+      return $?
     fi
   done
-
-  if test -e "${localDir}/.git/hooks/commit-msg"; then
-    bash "${localDir}/.git/hooks/commit-msg" "${@}";
-    if test $? -ne 0 ; then
-      return 1
-    fi
-  fi
 
   return 0
 }
