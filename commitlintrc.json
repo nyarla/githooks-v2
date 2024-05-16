@@ -1,7 +1,5 @@
 {
-  "extends": [
-    "@commitlint/config-conventional"
-  ],
+  "extends": ["@commitlint/config-conventional"],
   "rules": {
     "type-enum": [
       2,
@@ -11,15 +9,13 @@
         "chore",
         "ci",
         "docs",
-        "done",
         "feat",
         "fix",
         "perf",
         "refactor",
         "revert",
         "style",
-        "test",
-        "wip"
+        "test"
       ]
     ]
   }
