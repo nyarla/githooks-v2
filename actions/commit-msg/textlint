@@ -12,7 +12,7 @@ main() {
   export NODE_PATH="${ROOTDIR}/node_modules"
   export PATH=${NODE_PATH}/.bin:$PATH
 
-  textlint -c "${rc}" --stdin < "${msg}"
+  textlint -c "${rc}" --stdin --stdin-filename ".git/COMMIT_MSG.txt" < "${msg}"
 }
 
 main "${@}"
