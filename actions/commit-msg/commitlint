@@ -40,6 +40,7 @@ main() {
   export PATH=${NODE_PATH}/.bin:$PATH
   
   commitlint --config "$(commitlintrc)" --edit "${msg}"
+  return $?
 }
 
 main "${@}"
