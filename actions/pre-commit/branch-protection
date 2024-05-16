@@ -2,20 +2,26 @@
 
 set -euo pipefail
 
-globalDir="$(cd "$(dirname "${0}")/../../" && pwd)"
-localDir="$(git rev-parse --show-superproject-working-tree --show-toplevel | head -1)"
+ROOTDIR="$(cd "$(dirname "${0}")/../../" && pwd)"
+REPODIR="$(git rev-parse --show-superproject-working-tree --show-toplevel | head -1)"
+
+protectionrc() {
+  if [[ -e "${REPODIR}/.protectionrc" ]]; then
+    echo "${REPODIR}/.protectionrc"
+    return 0
+  fi
+
+  echo "${ROOTDIR}/protectionrc"
+  return 0
+}
 
 main() {
-  case "$(git rev-parse --abbrev-ref HEAD)" in
-    main | master | devel )
-      echo "you can't commit protected branch!";
-      return 1
-      ;;
+  if grep "$(git rev-parse --abbrev-ref HEAD)" "$(protectionrc)" >/dev/null; then
+    echo "you can't commit to this branch directly. please make topic branch." >&2
+    return 1
+  fi
 
-    *)
-      return 0;
-      ;;
-  esac
+  return 0
 }
 
 main "${@}"
