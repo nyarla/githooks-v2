@@ -13,11 +13,10 @@ rules:
   write-good: true
 
   # Writing style
-  first-sentence-length: true
-  en-max-word-count:
-    max: 50
+  first-sentence-length:
+    max: 140
   sentence-length:
-    max: 100
+    max: 280
   max-comma:
     max: 4
 
