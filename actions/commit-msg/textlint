@@ -11,6 +11,7 @@ main() {
   export PATH=${NODE_PATH}/.bin:$PATH
 
   textlint -c "${rc}" --stdin --stdin-filename ".git/COMMIT_MSG.txt" < "${msg}"
+  return $?
 }
 
 main "${@}"
