@@ -11,7 +11,6 @@ disabled() {
     || [[ -e "${REPODIR}/.githooks/.disable-action-${action}" ]]
 }
 
-
 main() {
   if [[ -e "${REPODIR}/.git/hooks/commit-msg" ]]; then
     "${REPODIR}/.git/hooks/commit-msg" "${@}"
@@ -19,8 +18,8 @@ main() {
   fi
 
   for action in "${ROOTDIR}"/actions/commit-msg/*; do
-    if ! disabled "$(basename "${action}")" && ! "${action}" "${@}"; then
-      return $?
+    if ! disabled "$(basename "${action}")"; then
+      "${action}" "${@}" || return $?
     fi
   done
 
