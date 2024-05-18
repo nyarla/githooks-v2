@@ -18,8 +18,8 @@ main() {
   fi
 
   for action in "${ROOTDIR}"/actions/pre-commit/*; do
-    if ! disabled "$(basename "${action}")" && ! "${action}" "${@}"; then
-      return $?
+    if ! disabled "$(basename "${action}")" ; then
+      "${action}" "${@}" || return $?
     fi
   done
 
