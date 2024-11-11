@@ -24,8 +24,8 @@ importers:
         specifier: ^3.0.0
         version: 3.0.0
       '@textlint-rule/textlint-rule-no-unmatched-pair':
-        specifier: ^2.0.3
-        version: 2.0.3
+        specifier: ^2.0.4
+        version: 2.0.4
       secretlint:
         specifier: ^9.0.0
         version: 9.0.0
@@ -256,8 +256,8 @@ packages:
   '@textlint-rule/textlint-rule-no-invalid-control-character@3.0.0':
     resolution: {integrity: sha512-2o9n4z49ntSPtJPlcJtxakyB4dAg2MKSvR9ZCZEHjye0ee27oWYzK6yHz2HjsXQqt9VeCwxNHDOIGIx2CQX0Dw==}
 
-  '@textlint-rule/textlint-rule-no-unmatched-pair@2.0.3':
-    resolution: {integrity: sha512-asZI8nYuXP6TNHRKPSDAqBzL/7LWdX5QgFp1ZSezJOzmWinI9r9JK9ywl71T7YZbR8IN06/g35rSFJVziidc2Q==}
+  '@textlint-rule/textlint-rule-no-unmatched-pair@2.0.4':
+    resolution: {integrity: sha512-g9Ge1xUV9xJy8T7nuutF/2J6Cg2mmPx4gKsC3dCdxVxuL0wMqOOnAi8l6psFpAQ5UFtQuAzwkdclrehPtBT5tg==}
 
   '@textlint-rule/tokenize-english@2.0.2':
     resolution: {integrity: sha512-cKhKdg/oUG5g5sLCoPWb8kLT4WeNvdDzICQhLUJVxXjkmKQFd8zoc8aXkLR5SUoFbldfCIuY4OaVUL2fKH0scg==}
@@ -3305,7 +3305,7 @@ snapshots:
 
   '@textlint-rule/textlint-rule-no-invalid-control-character@3.0.0': {}
 
-  '@textlint-rule/textlint-rule-no-unmatched-pair@2.0.3':
+  '@textlint-rule/textlint-rule-no-unmatched-pair@2.0.4':
     dependencies:
       sentence-splitter: 5.0.0
       textlint-rule-helper: 2.3.1
