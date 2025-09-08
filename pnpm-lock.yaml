@@ -15,8 +15,8 @@ importers:
         specifier: ^19.8.1
         version: 19.8.1
       '@secretlint/secretlint-rule-preset-recommend':
-        specifier: ^11.2.0
-        version: 11.2.0
+        specifier: ^11.2.3
+        version: 11.2.3
       '@textlint-rule/textlint-rule-no-duplicate-abbr':
         specifier: ^1.0.2
         version: 1.0.2
@@ -225,8 +225,8 @@ packages:
   '@secretlint/resolver@11.2.3':
     resolution: {integrity: sha512-f2b9wgLS1GwyRo4E459Q3n534KC0azYmMFRSwnRT65HDtZCci0BGv/m2AUCvor8+q2oSePrCC6NZnLwJDzm6Kg==}
 
-  '@secretlint/secretlint-rule-preset-recommend@11.2.0':
-    resolution: {integrity: sha512-3pQY45yR+RGwDSikuYXL254PAtkMSJ/X9pbgb3pFDM4lMmffhETlssvU/SOR9owlJk6RWXTogOgOqcAxUMmNug==}
+  '@secretlint/secretlint-rule-preset-recommend@11.2.3':
+    resolution: {integrity: sha512-tpjzerm1KedNnf8xkittHW0sIeCARH8+JFzgQDslQNtbqJ2MSPEs5e5VcJ0i2ZdHVhq1LC1osm88RmwV4k65yA==}
     engines: {node: '>=20.0.0'}
 
   '@secretlint/source-creator@11.2.3':
@@ -3475,7 +3475,7 @@ snapshots:
 
   '@secretlint/resolver@11.2.3': {}
 
-  '@secretlint/secretlint-rule-preset-recommend@11.2.0': {}
+  '@secretlint/secretlint-rule-preset-recommend@11.2.3': {}
 
   '@secretlint/source-creator@11.2.3':
     dependencies:
