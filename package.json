@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "@commitlint/cli": "^19.8.1",
+    "@commitlint/cli": "^20.1.0",
     "@commitlint/config-conventional": "^20.0.0",
     "@secretlint/secretlint-rule-preset-recommend": "^11.2.4",
     "@textlint-rule/textlint-rule-no-duplicate-abbr": "^1.0.2",
