@@ -15,8 +15,8 @@ importers:
         specifier: ^20.3.1
         version: 20.3.1
       '@secretlint/secretlint-rule-preset-recommend':
-        specifier: ^11.3.0
-        version: 11.3.0
+        specifier: ^11.3.1
+        version: 11.3.1
       '@textlint-rule/textlint-rule-no-duplicate-abbr':
         specifier: ^1.0.2
         version: 1.0.2
@@ -243,8 +243,8 @@ packages:
   '@secretlint/resolver@11.3.0':
     resolution: {integrity: sha512-94uyNK6Nq3lu0Q+PIaR8EzzhYrmOTBJn5SVM/V5hafbbQbU0+XLYodTf3aefG2cIDdPy3yNYB66JskHIUZI9Ug==}
 
-  '@secretlint/secretlint-rule-preset-recommend@11.3.0':
-    resolution: {integrity: sha512-s+FHhtx5dSXSthpgVRQFLiK/nNkeKYh0Bxk6gFcKeWPbE9tCg8zDGGMfQqsUnxvfs6X+LRtEFt5vLnv4PPlnjg==}
+  '@secretlint/secretlint-rule-preset-recommend@11.3.1':
+    resolution: {integrity: sha512-zRkESw8Mhuh4J65+biFKkpTW8Gjpse+D4BZhznASCtge38ervYcuG3IgHvFLf1AbTM+YQdH5wRVNdU0+btaEBw==}
     engines: {node: '>=20.0.0'}
 
   '@secretlint/source-creator@11.3.0':
@@ -1210,12 +1210,13 @@ packages:
 
   glob@10.5.0:
     resolution: {integrity: sha512-DfXN8DfhJ7NH3Oe7cFmu3NCu1wKbkReJ8TorzSAFbSKrlNaQSKfIzqYqVY8zlbs2NLBbWpRiU52GX2PbaBVNkg==}
+    deprecated: Old versions of glob are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting i@izs.me
     hasBin: true
 
   glob@8.1.0:
     resolution: {integrity: sha512-r8hpEjiQEYlF2QU0df3dS+nxxSIreXQS1qRhMJM0Q5NDdR386C7jb7Hwwod8Fgiuex+k0GFjgft18yvxm5XoCQ==}
     engines: {node: '>=12'}
-    deprecated: Glob versions prior to v9 are no longer supported
+    deprecated: Old versions of glob are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting i@izs.me
 
   global-directory@4.0.1:
     resolution: {integrity: sha512-wHTUcDUoZ1H5/0iVqEudYW4/kAlN5cZ3j/bXn0Dpbizl9iaUVeWSHqiOjsgk6OW2bkLclbBjzewBz6weQ1zA2Q==}
@@ -3499,7 +3500,7 @@ snapshots:
 
   '@secretlint/resolver@11.3.0': {}
 
-  '@secretlint/secretlint-rule-preset-recommend@11.3.0': {}
+  '@secretlint/secretlint-rule-preset-recommend@11.3.1': {}
 
   '@secretlint/source-creator@11.3.0':
     dependencies:
